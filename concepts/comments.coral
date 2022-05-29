@@ -1,0 +1,14 @@
+/-/ Single line comment
+
+/--
+Multi line comment
+--/
+
+/@/ Single line documentation comment. (eg to provide context to a variable)
+
+/@
+Multi line documenation comment, can have special keywords to document
+arguments. These comments can only be used on top of a logic, component,
+variable, function or class.
+@/
+
