@@ -1,0 +1,32 @@
+/--
+This just contains some general static html as a component.
+
+Components are defined by using the 'comp' or 'component' keyword. Any value
+between the brackets will be returned. Components MUST start with a capital
+letter. This is because ALL tags that have a capital letter are considered
+a component. All other values will not be touched.
+
+Components are purely to define the structure of the page. They should not
+contain any logic. Besides, this rule, you can still write javascript within
+a script tag. But this is not reccomended, unless you have a specific use case.
+--/
+
+
+com Navigation {
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+}
+
+component Header {
+    <header>
+      <h1>My awesome header!</h1>
+      <Navigation />
+    </header>
+};
+
+
