@@ -1,13 +1,13 @@
-/--
+/**
 Contains example logic components.
 
 Logic components are defined by using the 'ssr' or 'logic' keyword. A logic
 component ALWAYS expects a return value of the Component type.
---/
+**/
 
-/--
+/**
 Server side rendered:
---/
+**/
 ssr ListOf(String[] items) {
     result = ComponentCollector();
 
@@ -19,15 +19,15 @@ ssr ListOf(String[] items) {
 }
 
 
-/--
+/**
 Client side logic:
---/
+**/
 logic TodoList() {
-    /--
+    /**
     The dyn keyword defines that if this value gets updated the component
     which receives this as parameter, or the elements that use this value
     should update.
-    --/
+    **/
     dyn String[] items = [];
 
     return <article>
