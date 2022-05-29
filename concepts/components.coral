@@ -1,7 +1,7 @@
 /**
 This just contains some general static html as a component.
 
-Components are defined by using the 'comp' or 'component' keyword. Any value
+Components are defined by using the 'component' keyword. Any value
 between the brackets will be returned. Components MUST start with a capital
 letter. This is because ALL tags that have a capital letter are considered
 a component. All other values will not be touched.
@@ -12,7 +12,7 @@ a script tag. But this is not reccomended, unless you have a specific use case.
 **/
 
 
-comp Navigation {
+component Navigation {
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
@@ -33,7 +33,7 @@ component Header {
 Inline Component, this component ends when the next component is found. Or
 when the end of the file is reached.
 **/
-comp InlineComponent
+component InlineComponent
 <div>
     <h1>This is an inline component</h1>
     <p>This is an inline component</p>
