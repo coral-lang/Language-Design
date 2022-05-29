@@ -1,0 +1,59 @@
+/--
+Contains example logic components.
+
+Logic components are defined by using the 'ssr' or 'logic' keyword. A logic
+component ALWAYS expects a return value of the Component type.
+--/
+
+/--
+Server side rendered:
+--/
+ssr ListOf(String[] items) {
+    result = ComponentCollector();
+
+    foreach item in items {
+        result.add(<li>{item}</li>);
+    }
+
+    return <ul>{result}</ul>
+}
+
+
+/--
+Client side logic:
+--/
+logic TodoList() {
+    /--
+    The dyn keyword defines that if this value gets updated the component
+    which receives this as parameter, or the elements that use this value
+    should update.
+    --/
+    dyn String items = [];
+
+    return <article>
+        <h3>Todo List</h3>
+        <ListOf items={items} />
+
+        <!-- CoralForm is a form component that prevents default form behavior -->
+        <CoralForm>
+            <label for="todo">Add todo</label>
+            <!--
+                The `@declare` assigns the current element to a variable. This
+                can be any valid variable name. No '$' at the beginning is
+                required. But this follows the convention that all variables
+                of the element type are prefixed with '$'.
+            -->
+            <input type="text" id="todo" @declare=$newTodo />
+
+            <!--
+               The `@click` is a shorthand of `@on.click`. This reprensents a
+               user click event. You can assign a function (in this case a
+               lambda) to this, which gets called when the event occurs.
+
+               We use the previous declared variable $newTodo and get its value
+               which we add to the items array.
+            -->
+            <button @click=() => items.add($newTodo.value)>Add</button>
+        </CoralForm>
+    </article>
+}
