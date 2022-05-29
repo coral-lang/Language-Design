@@ -9,7 +9,7 @@ component ALWAYS expects a return value of the Component type.
 Server side rendered:
 **/
 ssr ListOf(String[] items) {
-    result = ComponentCollector();
+    let result = ComponentCollector();
 
     foreach item in items {
         result.add(<li>{item}</li>);
