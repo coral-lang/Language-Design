@@ -12,7 +12,7 @@ a script tag. But this is not reccomended, unless you have a specific use case.
 --/
 
 
-com Navigation {
+comp Navigation {
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
