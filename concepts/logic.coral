@@ -28,7 +28,7 @@ logic TodoList() {
     which receives this as parameter, or the elements that use this value
     should update.
     --/
-    dyn String items = [];
+    dyn String[] items = [];
 
     return <article>
         <h3>Todo List</h3>
