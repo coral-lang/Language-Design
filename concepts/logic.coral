@@ -5,11 +5,16 @@ Logic components are defined by using the 'ssr' or 'logic' keyword. A logic
 component ALWAYS expects a return value of the Component type.
 **/
 
+import (
+    "components",
+    "collectors"
+)
+
 /**
 Server side rendered:
 **/
 ssr ListOf(String[] items) {
-    let result = ComponentCollector();
+    let result = collectors.ComponentCollector();
 
     foreach item in items {
         result.add(<li>{item}</li>);
@@ -35,7 +40,7 @@ logic TodoList() {
         <ListOf items={items} />
 
         <!-- CoralForm is a form component that prevents default form behavior -->
-        <CoralForm>
+        <components.CoralForm>
             <label for="todo">Add todo</label>
             <!--
                 The `@declare` assigns the current element to a variable. This
@@ -54,6 +59,6 @@ logic TodoList() {
                which we add to the items array.
             -->
             <button @click=() => items.add($newTodo.value)>Add</button>
-        </CoralForm>
+        </components.CoralForm>
     </article>
 }
