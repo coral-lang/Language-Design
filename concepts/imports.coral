@@ -15,4 +15,4 @@ import (
 
     // Import from project root
     "/components/Header"
-)
+);
