@@ -5,7 +5,7 @@ Logic components are defined by using the 'ssr' or 'logic' keyword. A logic
 component ALWAYS expects a return value of the Component type.
 **/
 
-<!-- CoralForm is a form component that prevents default form behavior -->
+// CoralForm is a form component that prevents default form behavior
 import "coral/components.CoralForm";
 
 
