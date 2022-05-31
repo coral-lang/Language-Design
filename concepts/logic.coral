@@ -29,7 +29,6 @@ logic TodoList() {
     should update.
     **/
     dyn String[] items;
-    let Element $newTodo;
 
     return <article>
         <h3>Todo List</h3>
@@ -40,11 +39,9 @@ logic TodoList() {
             <label for="todo">Add todo</label>
             <!--
                 The `@declare` assigns the current element to a variable. This
-                can be any valid variable name. No '$' at the beginning is
-                required. But this follows the convention that all variables
-                of the element type are prefixed with '$'.
+                can be any valid variable name.
             -->
-            <input type="text" id="todo" @declare=$newTodo />
+            <input type="text" id="todo" @declare=TodoInput />
 
             <!--
                The `@click` is a shorthand of `@on.click`. This reprensents a
@@ -54,7 +51,7 @@ logic TodoList() {
                We use the previous declared variable $newTodo and get its value
                which we add to the items array.
             -->
-            <button @click=() => items.add($newTodo.value)>Add</button>
+            <button @click=() => items.add(TodoInput.value)>Add</button>
         </CoralForm>
     </article>
 }
