@@ -9,7 +9,7 @@ component ALWAYS expects a return value of the Component type.
 Server side rendered:
 **/
 ssr ListOf(String[] items) {
-    let result = ComponentCollector();
+    let Component[] result;
 
     foreach item in items {
         result.add(<li>{item}</li>);
@@ -28,7 +28,8 @@ logic TodoList() {
     which receives this as parameter, or the elements that use this value
     should update.
     **/
-    dyn String[] items = [];
+    dyn String[] items;
+    let Element $newTodo;
 
     return <article>
         <h3>Todo List</h3>
