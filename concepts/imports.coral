@@ -14,5 +14,5 @@ import (
     "./utils/math" as utils,
 
     // Import from project root
-    "/components/Header"
+    "/components/header"
 );
