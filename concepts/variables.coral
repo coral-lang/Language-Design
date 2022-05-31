@@ -1,9 +1,33 @@
 /*
 Contains example variables and their contexts.
+
+Default inffered types:
 */
 
 // The following two variable declarations are exacly the same.
-let example = "Hello, world!";
-let String example2 = "Hello, world!";
+let onions = "Onions";
+let String beef = "Beef";
+let beer = getBeer(); // Return type is inffered.
 
+/*
+Dynamic variables are ariables that should refresh the parent element in
+which they are placed. This does not mean the element which declares them, but
+means the element that uses it. This also makes it more efficient that
+reloading the whole element.
+
+Dynamic values can not be used in a SSR component.
+*/
+dyn laurel = "Laurel";
+dyn String thyme = "Thyme";
+
+/*
+Any type can be an array, this is declared by using two brackets. Unless the
+array type can be derived from the first element in the array, or the return
+type of a method. You must always provide a type.
+
+The types of the items in the array must be the same.
+*/
+let String[] butter; // Default is an empty array ([]);
+let String[] potatoes = []; // This is the same as the above.
+let extra = ["Mayonnaise", "Mustard"];
 
