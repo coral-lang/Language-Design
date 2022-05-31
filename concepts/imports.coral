@@ -1,6 +1,7 @@
 import (
     // Multiple submodule imports
     "org/example" (
+        // Static import
         "components.MyCustomComponent",
         "dev/object",
     ),
