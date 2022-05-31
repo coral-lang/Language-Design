@@ -10,7 +10,7 @@ import "coral/components.CoralForm";
 
 
 // Server side rendered:
-ssr ListOf(String[] items) {
+ssr ListOf(items: String[]) {
     let Component[] result;
 
     foreach item in items {
@@ -28,7 +28,7 @@ logic TodoList() {
     which receives this as parameter, or the elements that use this value
     should update.
     */
-    dyn String[] items;
+    dyn items: String[];
 
     return <article>
         <h3>Todo List</h3>

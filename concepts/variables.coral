@@ -1,0 +1,35 @@
+/*
+Contains example variables and their contexts.
+*/
+
+// The following two variable declarations are exactly the same.
+let onions = "Onions";
+let beef: String = "Beef";
+let beer = getBeer(); // Return type is inferred.
+
+/*
+Dynamic variables are ariables that should refresh the parent element in
+which they are placed. This does not mean the element which declares them, but
+means the element that uses it. This also makes it more efficient that
+reloading the whole element.
+
+Dynamic values can not be used in a SSR component.
+*/
+dyn laurel = "Laurel";
+dyn thyme: String = "Thyme";
+
+/*
+Any type can be an array, this is declared by using two brackets. Unless the
+array type can be derived from the first element in the array, or the return
+type of a method. You must always provide a type.
+
+The types of the items in the array must be the same.
+*/
+let butter: String[]; // Default is an empty array ([]);
+let potatoes: String[] = []; // This is the same as the above.
+let extra = ["Mayonnaise", "Mustard"];
+
+// Constants are variables that can not be changed. (immutable)
+const vinegar = "Vinegar";
+const clove = ["Clove"]
+const spices: String[] = ["Salt", "Pepper"];
