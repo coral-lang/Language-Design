@@ -12,6 +12,6 @@ import (
     "math",
     "./utils/math" as utils,
 
-    // Root path import
+    // Import from project root
     "/components/Header"
 )
