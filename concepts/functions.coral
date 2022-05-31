@@ -1,0 +1,23 @@
+/*
+Example functions.
+*/
+
+// No arguments, no return value.
+func hello() {
+    ...
+}
+
+// Parameters
+func drink(water: Water) {
+    ...
+}
+
+// Overloading.
+func drink(water: Water, flavor: Flavor) {
+    ...
+}
+
+// Return value.
+func getWater() -> Bottle<Water> {
+    return Bottle<Water>();
+}
