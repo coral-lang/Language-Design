@@ -18,6 +18,11 @@ func drink(water: Water, flavor: Flavor) {
 }
 
 // Return value.
-func getWater() -> Bottle<Water> {
-    return Bottle<Water>();
+func getWater() -> Water {
+    return Water();
+}
+
+// Throw exception.
+func convertToWine(water: Water) throws -> Wine {
+    throw InsufficientPermissions("You don't have this permission on earth :/");
 }
