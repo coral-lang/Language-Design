@@ -31,3 +31,8 @@ let String[] butter; // Default is an empty array ([]);
 let String[] potatoes = []; // This is the same as the above.
 let extra = ["Mayonnaise", "Mustard"];
 
+// Constants are variables that can not be changed. (immutable)
+const vinegar = "Vinegar";
+const clove = ["Clove"]
+const String[] spices = ["Salt", "Pepper"];
+
