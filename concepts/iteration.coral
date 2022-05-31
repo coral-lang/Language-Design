@@ -8,7 +8,7 @@ for (let i = 0; condition; i++) {
 }
 
 // Foreach loop
-foreach item in items {
+foreach (item in items) {
     ...
 }
 
