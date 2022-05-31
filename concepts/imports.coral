@@ -1,0 +1,17 @@
+import (
+    // Multiple submodule imports
+    "org/example" (
+        "components.MyCustomComponent",
+        "dev/object",
+    ),
+
+    // Normal module import
+    "coesmoes/seo",
+
+    // Module and relative path imports with one alias
+    "math",
+    "./utils/math" as utils,
+
+    // Root path import
+    "/components/Header"
+)
