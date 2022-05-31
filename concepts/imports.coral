@@ -1,9 +1,25 @@
+/**
+Contains example imports.
+
+General quick explanation:
+Module imports are pulled from GitHub using GIT. Using a self hosted GIT server
+can be done by just by providing the URN to the GIT server.
+
+You can import a statement from a file by using the dot notation. (see static
+import example) Relative imports are prefixed by a './'. Imports can also be
+done from the project root, this is prefixed by a '/'.
+
+If you have conflicting imports, you can use the 'as' keyword to alias the
+module/statement to a different keyword.
+**/
+
 import (
     // Multiple submodule imports
     "org/example" (
+        "dev/object",
+
         // Static import
         "components.MyCustomComponent",
-        "dev/object",
     ),
 
     // Normal module import
@@ -14,5 +30,8 @@ import (
     "./utils/math" as utils,
 
     // Import from project root
-    "/components/header"
+    "/components.Header",
+
+    // Self hosted GIT server
+    "git.arthurdw.com/my-module"
 );
