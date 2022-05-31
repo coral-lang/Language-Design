@@ -1,7 +1,5 @@
 /*
 Contains example variables and their contexts.
-
-Default inffered types:
 */
 
 // The following two variable declarations are exacly the same.
