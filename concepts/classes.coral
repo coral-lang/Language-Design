@@ -1,0 +1,70 @@
+/*
+All classes are types in Coral. These have some special methods which provide
+better language integration. All class members are private by default. Which
+means that only this class can set and get them.
+
+Class member publicity keywords:
+    - pub: available of every instance
+    - internal: available within the class and its children
+
+If a publicity keyword is applied on a property, it must be followed by a
+{ get; set; } where one of the two is optional. This binds the publicity to
+that action, if only one action is provided the brackets can be omitted.
+
+Class member state keywords:
+    - final: can only be set in the constructor
+    - abstract: available needs to be implemented in the children
+    - static (const): available without an instance
+*/
+
+import "coral/console";
+
+/*
+====================
+    Base example
+====================
+*/
+
+// Definition
+class Human {
+    pub get static const EYES = 2;
+
+    pub get final name: string;
+    pub get age: Integer;
+
+    pub Human(name: String, age: Integer) {
+        self.name = name;
+        self.age = age;
+    }
+
+    func say(message: String) {
+        console.log(message);
+    }
+
+    pub func getHello() -> String {
+        return f"Hello, my name is {self.name} and I am {self.age} years old.";
+    }
+
+    pub func sayHello() {
+        self.say(self.getHello());
+    }
+
+    pub func celebrateBirthday() {
+        self.age++;
+    }
+}
+
+// Usage
+let jeff = Human("Jeff", 30);
+jeff.sayHello(); // Hello, my name is Jeff and I am 30 years old.
+console.log(jeff.age); // 30
+jeff.celebrateBirthday();
+Console.log(jeff.age); // 31
+
+
+/*
+====================
+  Extended example
+====================
+*/
+// TODO: More advanced example with inheritance and special methods
