@@ -8,13 +8,37 @@ Class member publicity keywords:
     - internal: available within the class and its children
 
 If a publicity keyword is applied on a property, it must be followed by a
-{ get; set; } where one of the two is optional. This binds the publicity to
+{ get, set } where one of the two is optional. This binds the publicity to
 that action, if only one action is provided the brackets can be omitted.
 
 Class member state keywords:
     - final: can only be set in the constructor
     - abstract: available needs to be implemented in the children
     - static (const): available without an instance
+
+Special class members: (NOTES, even though they are private they can get
+accessed from beyond the class, T represents a type and CT represents the
+class type)
+    - static const $IMPLICIT: CT
+        implicit value of the class
+    - func $equal(other: T) -> Boolean
+        Allows the usage of == and !=
+    - func $greater(other: T) -> Boolean
+        Allows  usage of the > and <
+    - func $cast() -> T
+        Allows casting to the type of the class using the '(T) CT()' syntax,
+        this will be commonly used to cast to a string or integer. As a string
+        is mostly used as class representation and an integer as class hash-code.
+    - func $add(other: T) -> CT
+        Allows the usage of the + and += operator
+    - func $subtract(other: T) -> CT
+        Allows the usage of the - and -= operator
+    - func $multiply(other: T) -> CT
+        Allows the usage of the * and *= operator
+    - func $divide(other: T) -> CT
+        Allows the usage of the / and /= operator
+    - func $modulo(other: T) -> CT
+        Allows the usage of the % and %= operator
 */
 
 import "coral/console";
@@ -67,4 +91,81 @@ Console.log(jeff.age); // 31
   Extended example
 ====================
 */
-// TODO: More advanced example with inheritance and special methods
+class Animal {
+    pub get abstract final sound: string;
+
+    pub get final species: string;
+    pub get final eyes: Integer;
+    pub get final legs: string;
+
+    pub Animal(species: String, eyes: Integer) {
+        self(species, eyes, 0);
+    }
+
+    pub Animal(species: String, eyes: Integer, legs: Integer) {
+        self.species = species;
+        self.eyes = eyes;
+        self.legs = legs;
+    }
+
+    pub func hasFourLegs() -> Boolean {
+        return self.legs == 4;
+    }
+}
+
+class Race {
+    pub get final name: String;
+    pub get final location: String;
+    pub { get, set} final won: Boolean;
+
+    pub Race(name: String, location: String, won: Boolean) {
+        self.name = name;
+        self.location = location;
+        self.won = won;
+    }
+
+    func $equals(other: Race) -> Boolean {
+        let isSameName = self.name == other.name;
+        let isSameLocation = self.location == other.location;
+        return isSameName && isSameLocation;
+    }
+}
+
+class Horse extends Animal {
+    pub get final sound = "neigh";
+
+    pub get final kind: String;
+    // No $IMPLICIT keyword is required for this initialisation as an array
+    // will always default to an empty array.
+    races: Race[];
+
+    pub Horse(kind: String) {
+        super("horse", 2, 4);
+        self.kind = kind;
+    }
+
+    func $cast() -> String {
+        return f"Horse(kind={self.kind}, eyes={self.eyes}, legs={self.legs})";
+    }
+
+    pub func addRace(name: String, location: String) {
+        self.races.add(Race(name, location, false));
+    }
+
+    func getRace(name: String) throws -> Race {
+        foreach (race in races) {
+            if (race.name == name) {
+                return race;
+            }
+        }
+
+        throw new ItemNotFoundException(f"No race with name {name} found!");
+    }
+
+    // We need to use the throws here as we can not win a race we can't find!
+    // So we'll pass the responsibility to the caller.
+    pub func winRace(name: String) throws {
+        race = getRace(name);
+        race.won = true;
+    }
+}
