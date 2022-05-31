@@ -2,10 +2,10 @@
 Contains example variables and their contexts.
 */
 
-// The following two variable declarations are exacly the same.
+// The following two variable declarations are exactly the same.
 let onions = "Onions";
 let String beef = "Beef";
-let beer = getBeer(); // Return type is inffered.
+let beer = getBeer(); // Return type is inferred.
 
 /*
 Dynamic variables are ariables that should refresh the parent element in
@@ -33,4 +33,3 @@ let extra = ["Mayonnaise", "Mustard"];
 const vinegar = "Vinegar";
 const clove = ["Clove"]
 const String[] spices = ["Salt", "Pepper"];
-
