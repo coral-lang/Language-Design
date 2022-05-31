@@ -4,7 +4,7 @@ Contains example variables and their contexts.
 
 // The following two variable declarations are exactly the same.
 let onions = "Onions";
-let String beef = "Beef";
+let beef: String = "Beef";
 let beer = getBeer(); // Return type is inferred.
 
 /*
