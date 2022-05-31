@@ -1,4 +1,4 @@
-/**
+/*
 Contains example imports.
 
 General quick explanation:
@@ -11,7 +11,7 @@ done from the project root, this is prefixed by a '/'.
 
 If you have conflicting imports, you can use the 'as' keyword to alias the
 module/statement to a different keyword.
-**/
+*/
 
 import (
     // Multiple submodule imports

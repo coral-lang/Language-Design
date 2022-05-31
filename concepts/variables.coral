@@ -1,0 +1,9 @@
+/*
+Contains example variables and their contexts.
+*/
+
+// The following two variable declarations are exacly the same.
+let example = "Hello, world!";
+let String example2 = "Hello, world!";
+
+

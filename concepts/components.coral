@@ -1,4 +1,4 @@
-/**
+/*
 This just contains some general static html as a component.
 
 Components are defined by using the 'comp' or 'component' keyword. Any value
@@ -9,7 +9,7 @@ a component. All other values will not be touched.
 Components are purely to define the structure of the page. They should not
 contain any logic. Besides, this rule, you can still write javascript within
 a script tag. But this is not reccomended, unless you have a specific use case.
-**/
+*/
 
 
 comp Navigation {
@@ -29,10 +29,10 @@ component Header {
     </header>
 };
 
-/**
+/*
 Inline Component, this component ends when the next component is found. Or
 when the end of the file is reached.
-**/
+*/
 comp InlineComponent
 <div>
     <h1>This is an inline component</h1>
