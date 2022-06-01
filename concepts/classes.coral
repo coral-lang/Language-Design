@@ -116,7 +116,7 @@ class Animal {
 class Race {
     pub get final name: String;
     pub get final location: String;
-    pub { get, set } final won: Boolean;
+    pub { get, set } won: Boolean;
 
     pub Race(name: String, location: String, won: Boolean) {
         self.name = name;
