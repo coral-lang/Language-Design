@@ -1,5 +1,8 @@
 /*
 Contains example variables and their contexts.
+
+Coral tries to implicitly get a default value if none provided. For this to
+work the type must implement the $IMPLICIT public static value.
 */
 
 // The following two variable declarations are exactly the same.
