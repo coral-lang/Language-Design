@@ -1,0 +1,75 @@
+/*
+All exceptions are derived from a class. This allows them to have all the
+functionality of a class. No special methods are needed.
+
+Throwing an exception is done by using the `throw` on an instance of a class.
+Try and catches are exactly the same as in any other language. If you are not
+handling the exception, and want the caller to take responsibility for it. You
+must add a `throws` keyword to the method.
+
+A top level code, can never handle this responsibility to a parent.
+*/
+
+import "coral/console";
+
+class Exception {
+    pub get final message: String;
+
+    pub Exception(message: String) {
+        self.message = message;
+    }
+}
+
+class InvalidArgumentException extends Exception {
+    pub InvalidArgumentException(message: String) {
+        super(message);
+    }
+}
+
+class RuntimeException extends Exception {
+    pub RuntimeException(message: String) {
+        super(message);
+    }
+}
+
+func hello(message: String) throws -> String {
+    if (message == "") {
+        throw InvalidArgumentException("Message cannot be empty");
+    }
+
+    if (message[message.length - 1] == '!') {
+        throw RuntimeException("Message cannot end with an exclamation mark");
+    }
+
+    return f"Hello, {message}";
+}
+
+// Just running this would be allowed by the compiler as it is a top level code.
+// Even tho it would not raise an error in this case.
+// hello("Jeffry.");
+let message: String;
+
+try {
+    message = hello("Jeffry.");
+} catch (InvalidArgumentException e) {
+    console.error(e.message);
+} catch (RuntimeException e) {
+    console.error(e.message);
+}
+
+// Or a generic catch all for all my errors that inherit the base class.
+try {
+    message2 = hello("Jeffry.");
+} catch (Exception e) {
+    console.error(e.message);
+}
+
+// If you want to handle an exception in a function, but it does not handle all
+// exceptions, you must still add a `throws` keyword to the function.
+func basicHello(message: String) throws -> String {
+    try {
+        return hello(message);
+    } catch (InvalidArgumentException e) {
+        return e.message;
+    }
+}

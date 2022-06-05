@@ -165,7 +165,7 @@ class Horse extends Animal {
     // We need to use the throws here as we can not win a race we can't find!
     // So we'll pass the responsibility to the caller.
     pub func winRace(name: String) throws {
-        race = getRace(name);
+        let race = getRace(name);
         race.won = true;
     }
 }
