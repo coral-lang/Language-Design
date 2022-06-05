@@ -1,0 +1,28 @@
+/*
+Example functions.
+*/
+
+// No arguments, no return value.
+func hello() {
+    ...
+}
+
+// Parameters
+func drink(water: Water) {
+    ...
+}
+
+// Overloading.
+func drink(water: Water, flavor: Flavor) {
+    ...
+}
+
+// Return value.
+func getWater() -> Water {
+    return Water();
+}
+
+// Throw exception.
+func convertToWine(water: Water) throws -> Wine {
+    throw InsufficientPermissions("You don't have this permission on earth :/");
+}
