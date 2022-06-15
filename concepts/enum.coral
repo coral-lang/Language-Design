@@ -1,0 +1,30 @@
+/*
+Contains example imports to showcase some wanted functionality.
+
+Default value for an enum value is an incrementing integer.
+*/
+
+import "coral/console";
+
+// Basic enum
+enum Directions {
+    UP;
+    DOWN;
+    LEFT;
+    RIGHT;
+}
+
+// Value bound enum
+enum VimDirections {
+    UP = "k";
+    DOWN = "j";
+    LEFT = "h";
+    RIGHT = "l";
+}
+
+func printBinding(direction: VimDirections) {
+    console.log("Binding for " + direction + " is " + direction.value);
+}
+
+printBinding(VimDirections.UP); // "Binding for UP is k
+printBinding(Directions.UP); // Error
