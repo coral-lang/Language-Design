@@ -1,3 +1,74 @@
 /*
 An example of how pages can be created/defined.
+
+All pages are defined in the pages or api folder. Their name is the name of the file.
+Allowing url parameters can be done by using [] in the file name.
+
+An example tree of such a project:
+my-app/
+├── api
+|   ├── analytics.coral
+|   └── projects
+|       ├── [id].coral
+|       └── all.coral
+└── pages
+    ├── contact.coral
+    ├── index.coral
+    ├── projects.coral
+    └── images
+        ├── background.webp
+        └── icon.png
 */
+
+import "./components.coral";
+
+// An example of the index page content:
+comp Index {
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <components.Header />
+        <main>
+            <h1>Hello World</h1>
+            <p>This is a simple example of a Coral app.</p>
+        </main>
+    </body>
+    </html>
+}
+
+// An example of the projects [id].coral page content:
+let projects = { // Is a hashmap of all projects.
+    1: {
+        name: "Project 1",
+        description: "This is the description of project 1.",
+        image: "https://via.placeholder.com/300x200",
+        link: "https://example.com/project-1"
+    },
+    2: {
+        name: "Project 2",
+        description: "This is the description of project 2.",
+        image: "https://via.placeholder.com/300x200",
+        link: "https://example.com/project-2"
+    }
+}
+
+// A Map can be casted to JSON. The only thing that JSON adds is the proper
+// request header. (Content-Type: application/json)
+ssr Projects(id: Integer) -> JSON {
+    try {
+        let project: Map<String, String> = projects[id];
+    } catch (KeyError) {
+        return {
+            error: "Project not found."
+        };
+    }
+
+    // You can manipulate request values by accessing them through self.
+    self.cookies.set("last_fetched_project", id)
+
+    return project;
+}

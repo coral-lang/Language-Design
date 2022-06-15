@@ -8,7 +8,7 @@ a component. All other values will not be touched.
 
 Components are purely to define the structure of the page. They should not
 contain any logic. Besides, this rule, you can still write javascript within
-a script tag. But this is not reccomended, unless you have a specific use case.
+a script tag. But this is not recommended, unless you have a specific use case.
 */
 
 
@@ -16,7 +16,7 @@ comp Navigation {
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="/projects">Projects</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
     </nav>
@@ -38,4 +38,3 @@ comp InlineComponent
     <h1>This is an inline component</h1>
     <p>This is an inline component</p>
 </div>
-
