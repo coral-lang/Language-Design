@@ -1,20 +1,20 @@
 /*
 An example of how pages can be created/defined.
 
-All pages are defined in the pages or api folder. Their name is the name of the file.
+All pages are defined in the src folder. Their name is the name of the file.
 Allowing url parameters can be done by using [] in the file name.
 
 An example tree of such a project:
 my-app/
-├── api
-|   ├── analytics.coral
-|   └── projects
-|       ├── [id].coral
-|       └── all.coral
-└── pages
+└── src
     ├── contact.coral
     ├── index.coral
     ├── projects.coral
+    ├── api
+    |   ├── analytics.coral
+    |   └── projects
+    |       ├── [id].coral
+    |       └── all.coral
     └── images
         ├── background.webp
         └── icon.png
